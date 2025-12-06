@@ -1,5 +1,10 @@
 const OpenAI = require('openai');
 
+// Validate OpenAI API key is present
+if (!process.env.OPENAI_API_KEY) {
+  throw new Error('OPENAI_API_KEY is not set in environment variables. Please add it to your .env file.');
+}
+
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
 });
